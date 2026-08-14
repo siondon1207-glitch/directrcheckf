@@ -1,23 +1,759 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "KGM 코란도",
+        "description": "2026년형 KGM 코란도 및 코란도 EV 신차 가격표, 옵션, 세부 트림별 견적 비교. 가솔린 및 전기차 모델의 세제 혜택과 다이렉트 최저가 구매 가이드 제공.",
+        "brand": {
+          "@type": "Brand",
+          "name": "KGM"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "KRW",
+          "lowPrice": "24450000",
+          "highPrice": "47860000",
+          "offerCount": "8",
+          "priceValuedAsOf": "2026-08-14",
+          "url": "https://korando.reliabledone.com/price-calculator"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "2450"
+        }
+      }
+    </script>
+
+    <style>
+      /* Modern & Soft Palette Custom CSS */
+      :root {
+        --primary-color: #4f5d75;
+        --primary-light: #f0f4f8;
+        --secondary-color: #8d99ae;
+        --accent-color: #ef8354;
+        --bg-color: #faf9f6;
+        --card-bg: #ffffff;
+        --text-dark: #2d3142;
+        --text-light: #5a6075;
+        --border-color: #e2e1df;
+        --highlight-bg: #f4f6f9;
+        --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      }
+
+      /* Reset and Base Styles */
+      body { 
+        font-family: var(--font-family); 
+        margin: 0; 
+        padding: 0; 
+        line-height: 1.8; 
+        color: var(--text-dark); 
+        background-color: var(--bg-color); 
+        font-size: 16px; 
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      h1, h2, h3, h4 { 
+        font-weight: 700; 
+        line-height: 1.4; 
+        color: var(--text-dark); 
+        margin-top: 0;
+      }
+      
+      h1 { 
+        font-size: 2.5rem; 
+        text-align: center; 
+        margin-bottom: 1.5rem; 
+        color: var(--text-dark);
+      }
+      
+      h2 { 
+        font-size: 1.85rem; 
+        border-bottom: 3px solid var(--primary-light); 
+        padding-bottom: 12px; 
+        margin-top: 50px; 
+        margin-bottom: 25px;
+      }
+      
+      h3 { 
+        font-size: 1.4rem; 
+        margin-top: 35px; 
+        margin-bottom: 15px;
+        color: var(--primary-color); 
+      }
+      
+      p { 
+        margin-bottom: 20px; 
+        text-align: justify;
+        color: var(--text-light);
+      }
+      
+      a { 
+        color: var(--accent-color); 
+        text-decoration: none; 
+        transition: color 0.3s ease; 
+        font-weight: 600;
+      }
+      
+      a:hover { 
+        color: #d15d2a; 
+        text-decoration: underline; 
+      }
+      
+      img { 
+        max-width: 100%; 
+        height: auto; 
+        display: block; 
+        margin: 30px auto; 
+        border-radius: 12px; 
+        box-shadow: 0 6px 18px rgba(79, 93, 117, 0.08); 
+      }
+
+      /* Layout and Container */
+      .container { 
+        max-width: 1100px; 
+        margin: 40px auto; 
+        padding: 40px; 
+        background-color: var(--card-bg); 
+        border-radius: 20px; 
+        box-shadow: 0 10px 30px rgba(79, 93, 117, 0.05); 
+      }
+      
+      header { 
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
+        color: #fff; 
+        padding: 70px 30px; 
+        text-align: center; 
+        border-radius: 16px; 
+        box-shadow: 0 8px 24px rgba(79, 93, 117, 0.15);
+      }
+      
+      header h1 {
+        color: #ffffff;
+      }
+      
+      header p { 
+        font-size: 1.25rem; 
+        color: rgba(255, 255, 255, 0.9); 
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      section { 
+        padding: 10px 0; 
+      }
+      
+      footer { 
+        background-color: var(--primary-light); 
+        color: var(--text-light); 
+        padding: 30px; 
+        text-align: center; 
+        font-size: 0.95rem; 
+        margin-top: 60px; 
+        border-radius: 12px; 
+        border-top: 1px solid var(--border-color);
+      }
+
+      /* Call to Action (CTA) Button */
+      .cta-btn { 
+        background: var(--accent-color); 
+        color: #fff !important; 
+        padding: 16px 36px; 
+        border-radius: 50px; 
+        text-decoration: none; 
+        font-weight: 700; 
+        font-size: 1.15rem; 
+        transition: all 0.3s ease; 
+        display: inline-block; 
+        margin: 10px auto; 
+        box-shadow: 0 5px 15px rgba(239, 131, 84, 0.35); 
+      }
+      
+      .cta-btn:hover { 
+        background: #d15d2a; 
+        transform: translateY(-2px); 
+        box-shadow: 0 8px 20px rgba(239, 131, 84, 0.45); 
+        text-decoration: none !important;
+      }
+
+      /* Navigation Bar */
+      nav { 
+        margin-top: 30px; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      nav a { 
+        color: #fff; 
+        padding: 8px 18px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.15);
+        font-weight: 500; 
+        font-size: 0.95rem; 
+        transition: all 0.3s ease; 
+      }
+      
+      nav a:hover { 
+        background-color: rgba(255, 255, 255, 0.3); 
+        text-decoration: none; 
+      }
+
+      /* Info Box Styling */
+      .info-box { 
+        background-color: var(--primary-light); 
+        border-left: 5px solid var(--primary-color); 
+        padding: 25px; 
+        margin: 30px 0; 
+        border-radius: 0 12px 12px 0; 
+        font-size: 1rem; 
+        line-height: 1.8; 
+      }
+      
+      .info-box strong {
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+      }
+
+      /* Lists */
+      .content-list { 
+        list-style-type: none; 
+        padding-left: 0;
+        margin-bottom: 30px;
+      }
+      
+      .content-list li { 
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px; 
+        color: var(--text-light);
+      }
+
+      .content-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+      }
+
+      /* Tables for Specifications and Pricing */
+      .price-table, .comparison-table { 
+        width: 100%; 
+        border-collapse: collapse; 
+        margin: 30px 0; 
+        font-size: 0.95rem; 
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(79, 93, 117, 0.03);
+      }
+      
+      .price-table th, .price-table td, .comparison-table th, .comparison-table td { 
+        border: 1px solid var(--border-color); 
+        padding: 16px; 
+        text-align: left; 
+        vertical-align: middle; 
+      }
+      
+      .price-table th, .comparison-table th { 
+        background-color: var(--primary-color); 
+        font-weight: 600; 
+        color: #ffffff; 
+      }
+      
+      .price-table tr:nth-child(even), .comparison-table tr:nth-child(even) { 
+        background-color: var(--bg-color); 
+      }
+      
+      .price-table tr:hover, .comparison-table tr:hover { 
+        background-color: var(--primary-light); 
+      }
+
+      /* Form Styling */
+      .quote-form-section { 
+        background-color: var(--primary-light); 
+        padding: 40px; 
+        border-radius: 16px; 
+        margin-top: 50px; 
+        border: 1px solid var(--border-color);
+      }
+      
+      .quote-form-section h2 {
+        border-bottom: none;
+        margin-top: 0;
+        padding-bottom: 0;
+        text-align: center;
+      }
+      
+      .quote-form-section p {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .quote-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group-full {
+        grid-column: span 2;
+      }
+
+      .quote-form label { 
+        display: block; 
+        margin-bottom: 8px; 
+        font-weight: 600; 
+        color: var(--text-dark); 
+      }
+      
+      .quote-form input[type="text"], 
+      .quote-form input[type="email"], 
+      .quote-form input[type="tel"], 
+      .quote-form select, 
+      .quote-form textarea { 
+        width: 100%; 
+        padding: 14px; 
+        border: 1px solid var(--border-color); 
+        border-radius: 8px; 
+        box-sizing: border-box; 
+        font-size: 0.95rem; 
+        background-color: #ffffff;
+        color: var(--text-dark);
+        transition: border-color 0.3s ease;
+      }
+
+      .quote-form input:focus, 
+      .quote-form select:focus, 
+      .quote-form textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+      
+      .quote-form button { 
+        grid-column: span 2;
+        background: var(--accent-color); 
+        color: #fff; 
+        border: none; 
+        padding: 16px; 
+        border-radius: 8px; 
+        font-size: 1.1rem; 
+        font-weight: 700; 
+        cursor: pointer; 
+        transition: background 0.3s ease, transform 0.2s ease; 
+        box-shadow: 0 4px 12px rgba(239, 131, 84, 0.2);
+      }
+      
+      .quote-form button:hover { 
+        background: #d15d2a; 
+        transform: translateY(-1px);
+      }
+
+      /* Tag Cloud */
+      .keyword-cloud { 
+        margin: 25px 0; 
+        padding: 20px; 
+        background-color: var(--bg-color); 
+        border-radius: 12px; 
+        border: 1px solid var(--border-color); 
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .keyword-cloud span { 
+        display: inline-block; 
+        background-color: #ffffff; 
+        color: var(--primary-color); 
+        padding: 6px 14px; 
+        border-radius: 30px; 
+        font-size: 0.85rem; 
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease; 
+      }
+      
+      .keyword-cloud span:hover { 
+        background-color: var(--primary-color); 
+        color: #ffffff; 
+        border-color: var(--primary-color);
+      }
+
+      /* External Link Section */
+      .external-link-list { 
+        background-color: #ffffff; 
+        padding: 30px; 
+        border-radius: 12px; 
+        margin-top: 40px; 
+        border: 1px solid var(--border-color); 
+      }
+      
+      .external-link-list h4 { 
+        margin-bottom: 15px; 
+        color: var(--primary-color); 
+        font-size: 1.15rem;
+      }
+      
+      .external-link-list li { 
+        margin-bottom: 10px; 
+        font-size: 0.95rem; 
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+          margin: 15px;
+        }
+        header {
+          padding: 40px 15px;
+        }
+        h1 {
+          font-size: 1.85rem;
+        }
+        h2 {
+          font-size: 1.45rem;
+        }
+        h3 {
+          font-size: 1.2rem;
+        }
+        .quote-form {
+          grid-template-columns: 1fr;
+        }
+        .form-group-full, .quote-form button {
+          grid-column: span 1;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>코란도 가격 및 최적의 금융 조건 비교 가이드</h1>
+            <p>2026년형 내연기관 가솔린과 코란도 EV 친환경 트림의 다이렉트 견적 비교</p>
+            <a href="#quote-form-section" class="cta-btn">코란도 실시간 다이렉트 최저가 상담 신청</a>
+            <nav>
+                <a href="#intro">브랜드 역사와 동향</a>
+                <a href="#lineup">2026 라인업 및 가격표</a>
+                <a href="#comparison">구매 방식별 차이점</a>
+                <a href="#proscons">정밀 장단점 분석</a>
+                <a href="#community">인터넷 온라인 반응</a>
+                <a href="#reviews">내돈내산 실제 이용후기</a>
+                <a href="#faq">자주 묻는 질문</a>
+            </nav>
+        </header>
+
+        <section id="intro">
+            <h2>KGM 코란도 브랜드 역사와 2026년 시장 동향</h2>
+            <p>대한민국 준중형 SUV 시장의 기념비적인 아이콘인 코란도는 특유의 단단하고 안정적인 이미지로 오랜 세월 사랑을 받아온 대표적인 차량입니다. 쌍용자동차 시절부터 이어진 강인한 유산을 현대적으로 재해석하며, 최근 사명을 변경한 KG모빌리티(KGM) 하에서 새로운 도약을 꾀하고 있습니다. KGM이라는 견고한 새로운 브랜드 정체성을 입힌 이후, 현대적인 첨단 기술과 합리적인 예산 포지셔닝을 결합해 도심형 패밀리카는 물론 아웃도어 활동을 즐기는 운전자들 사이에서 구매 추천 순위 상위권에 머무르고 있습니다.</p>
+            
+            <p>특히 2026년형 KGM 코란도 시리즈는 우수한 조향 보조 성능을 자랑하는 딥컨트롤 패키지와 정숙성이 돋보이는 1.5리터 가솔린 터보 엔진 라인업을 기본으로 하여 최고의 가성비 SUV 자리를 위협하고 있습니다. 또한 기후 변화에 대응하고 고효율 친환경 이동 수단을 찾는 스마트한 소비자를 타겟으로 한 순수 전기 SUV 모델인 코란도 EV 역시 대폭 상품성을 개선해 시장에서 호평을 얻고 있습니다. 최근에는 과거 2세대 뉴 코란도의 디자인 유산을 계승해 정통 아웃도어 무드를 풍기는 신차 프로젝트 KR10 개발 소식까지 맞물리면서, 많은 아빠들과 젊은 운전자들이 성지 대리점을 탐색하며 신규 계약 및 출고 일정을 문의하는 빈도가 높아지고 있습니다.</p>
+
+            <div class="info-box">
+                <strong>네이버 및 구글 통합 검색 기반 트렌드 분석</strong>
+                소비자들은 신차를 일시불로 인수하는 전통적인 구입 방법 외에도, 자산 세금 변동을 방지하고 초기 납입금을 아낄 수 있는 인터넷 리스 및 장기렌트 다이렉트 컨설팅을 적극적으로 신청하는 추세입니다. 복잡한 계산 과정을 거쳐 세금 절감 효과를 극대화하는 법을 연구하는 지혜로운 오너들이 늘어나면서 오토 금융 시장도 다변화되고 있습니다.
+            </div>
+        </section>
+
+        <section id="lineup">
+            <h2>2026년형 KGM 코란도 및 코란도 EV 가격표</h2>
+            <p>현재 시장에서 유통되고 있는 KGM 코란도의 정규 라인업은 합리적인 초기 비용 유입을 무기로 삼는 1.5 가솔린 터보 모델과 첨단 친환경 성능의 정수를 보여주는 코란도 EV 두 가지 종류로 크게 분류됩니다. 아래에 작성된 수치는 대리점 프로모션 혜택과 지자체별 상이한 전기차 지원금이 적용되기 이전의 공식적인 표준 책정 금액입니다. 실구매 가격에 직접적인 영향을 미치는 옵션 구성과 세부 사양을 면밀하게 대조해 본 후 본인에게 가장 이로운 트림을 선택하는 방향을 권해 드립니다.</p>
+
+            <h3>1.5 가솔린 터보 모델 상세 라인업</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>세부 트림 종류</th>
+                        <th>공식 출시 가격</th>
+                        <th>주요 표준 장착 품목 및 차이점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.5 가솔린 터보 C5 (2WD)</td>
+                        <td>24,450,000 원</td>
+                        <td>합리적인 진입 장벽을 구현한 엔트리 등급으로 기본 안전 장치 및 실용적인 직물/인조가죽 내장재 탑재</td>
+                    </tr>
+                    <tr>
+                        <td>1.5 가솔린 터보 C5 플러스 (2WD)</td>
+                        <td>26,300,000 원</td>
+                        <td>운전석 전동 조절 및 1열 열선, 통풍 시트 탑재로 일상 주행 편의성을 배가한 볼륨 판매 추천 트림</td>
+                    </tr>
+                    <tr>
+                        <td>1.5 가솔린 터보 C7 (2WD)</td>
+                        <td>28,270,000 원</td>
+                        <td>9인치 HD 스마트 미러링 패키지 및 앰비언트 무드램프, Full LED 헤드램프 등 고급 편의사양 보강</td>
+                    </tr>
+                    <tr>
+                        <td>1.5 가솔린 터보 C7 R-플러스 패키지</td>
+                        <td>29,280,000 원</td>
+                        <td>차별화된 외장 데칼 가니쉬와 세련된 투톤 인테리어 패키지를 더해 차주의 개성을 부각한 스타일 트림</td>
+                    </tr>
+                    <tr>
+                        <td>1.5 가솔린 터보 C7 (4WD)</td>
+                        <td>30,100,000 원</td>
+                        <td>눈길이나 빗길 주행에서 뛰어난 구동력 배분을 보장하는 4륜구동 시스템 기본 반영</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>코란도 EV 전기차 모델 상세 라인업</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>세부 트림 종류</th>
+                        <th>공식 출시 가격</th>
+                        <th>보조금 적용 예상 최종 금액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>코란도 EV E3</td>
+                        <td>40,280,000 원</td>
+                        <td>지자체 보조금과 하이브리드/전기 세제 혜택 반영 시 실구매 평균 가격 3,100만원대 예상</td>
+                    </tr>
+                    <tr>
+                        <td>코란도 EV E5</td>
+                        <td>45,440,000 원</td>
+                        <td>실외 V2L 기능 및 천연 가죽시트, 운전석 자세 메모리 시스템 탑재, 실구매 약 3,600만원대 예상</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 10px;">
+                주의사항: 명시된 수치는 가입 조건 및 금융 금리 추이에 따라 일부 오차가 발생할 수 있습니다. 특히 매달 대리점에서 개별적으로 운용하는 비공식 현금지원 혜택과 지자체별 친환경 지원금 예산 한도의 소진 속도에 따라 부담해야 하는 최종 납입금이 얼마 수준인지 유동적이므로, 계약서 작성 이전에 전문 매니저의 다이렉트 1대1 컨설팅을 받으시어 정밀한 예상 수치를 미리 계산해 보시는 것을 적극 조장합니다.
+            </p>
+        </section>
+
+        <section id="comparison">
+            <h2>구매 방식별 금융 구조 비교 및 세제 혜택 가이드</h2>
+            <p>신차를 구매하여 운용하는 방법에는 각기 장단점이 뚜렷하게 갈립니다. 전통적으로 일시 전액 결제 방식이나 할부 거래를 선호하는 비중이 컸으나, 현대 스마트한 소비자들은 세금 폭탄을 피하고 효율적인 지출 계획 관리를 수립하기 위해 렌트 요금제나 리스 상품과 같은 금융 대안책에 가입하는 비중을 차츰 늘려가고 있습니다. 각 설계 방식의 구체적인 차이점을 대조 표를 통해 확인해 보십시오.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>평가 기준</th>
+                        <th>신차 다이렉트 할부</th>
+                        <th>자동차 리스 (Lease)</th>
+                        <th>장기렌트 (Rent)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>초기 소요 비용</td>
+                        <td>취등록세 및 초기 인도금 필요</td>
+                        <td>보증금 설정에 따라 최소화 가능</td>
+                        <td>보증금 0% 무보증 선택 가능</td>
+                    </tr>
+                    <tr>
+                        <td>자동차 보험 명의</td>
+                        <td>이용자 개인 종합보험 가입</td>
+                        <td>이용자 개인 종합보험 가입</td>
+                        <td>렌탈 업체 일괄 가입 처리</td>
+                    </tr>
+                    <tr>
+                        <td>번호판 형태</td>
+                        <td>일반 번호판 사용</td>
+                        <td>일반 번호판 사용</td>
+                        <td>하, 허, 호 전용 번호판 부착</td>
+                    </tr>
+                    <tr>
+                        <td>세무 손비 처리</td>
+                        <td>개인/법인 사업자 제한적 감면</td>
+                        <td>매달 발생하는 사용료 전액 비용 처리</td>
+                        <td>월 대여료 손비 인정으로 절세 가능</td>
+                    </tr>
+                    <tr>
+                        <td>신용 등급 영향</td>
+                        <td>기대출 금융 자산으로 집계</td>
+                        <td>금융 리스 부채로 일부분 산입</td>
+                        <td>대여 상품이므로 신용 변동 없음</td>
+                    </tr>
+                    <tr>
+                        <td>추천 타겟층</td>
+                        <td>장기 소유 희망, 연 주행거리 긴 오너</td>
+                        <td>사업자 세금 감면 희망, 일반 번호판 선호</td>
+                        <td>초보 운전자, 자산 관리 편의성 중심</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>매달 고정적으로 납부해야 하는 사용 요금에는 차량 유지를 위해 소요되는 세금과 기회비용이 투영되어 있습니다. 이 때문에 어떠한 방식이 제일 합리적인 지는 운전자의 연간 주행 거리, 연령대에 따른 보험 요율표, 그리고 사업상 종합소득세 감면율에 맞춰 다각도로 계산해 보아야 합니다. 모바일 전용 앱이나 인터넷 웹 상의 스마트 계산기 프로그램을 구동해 평균 유지비를 미리 가늠해 두는 과정이 유용하게 쓰일 수 있습니다.</p>
+        </section>
+
+        <section id="proscons">
+            <h2>코란도 가솔린 vs EV 모델의 정밀 장단점 분석</h2>
+            <p>합리적인 지출을 추구하는 소비자들이 차량 인도 이전에 가장 많이 고민하는 부분이 바로 가솔린 모델과 코란도 EV 친환경 트림 간의 실용성 대비 성능 효율의 편차입니다. 각 동력계 종류에 따른 뚜렷한 장단점의 분석 결과를 기재해 둡니다.</p>
+
+            <h3>1.5 가솔린 터보 모델의 장점</h3>
+            <ul class="content-list">
+                <li><strong>뛰어난 경제성 및 가성비:</strong> 초기 구매 가격이 국산 준중형급 SUV 제품군 중 최저가 수준에 가깝게 포진하여 초기 부담금이 현저히 적습니다.</li>
+                <li><strong>우수한 실용 정숙성:</strong> 저회전 영역에서 넉넉한 토크를 뿜어내는 엔진 세팅으로 도심 가속 구간에서 부드러운 드라이빙 재미를 누릴 수 있습니다.</li>
+                <li><strong>무난한 관리성:</strong> 부품 수급률이 양호하여 전국 지점 KGM 서비스 네트워크를 통한 자가 정비 및 정기 점검이 대단히 명료합니다.</li>
+            </ul>
+
+            <h3>1.5 가솔린 터보 모델의 단점</h3>
+            <ul class="content-list">
+                <li><strong>연비 유지비 부담:</strong> 경쟁 하이브리드 SUV 모델과 단순 대비했을 때, 복합 기준 11km 내외의 가솔린 연비는 일평균 장거리 주행자에게 다소 무겁게 다가올 수 있습니다.</li>
+                <li><strong>인테리어 감성:</strong> 실내 센터패시아 및 디스플레이 인포콘 레이아웃이 최근 수입차나 트렌디한 경쟁사 인테리어 디자인 트렌드에 비해 살짝 보수적이라는 평을 듣습니다.</li>
+            </ul>
+
+            <h3>코란도 EV 모델의 장점</h3>
+            <ul class="content-list">
+                <li><strong>압도적인 저렴한 유지비:</strong> 심야 완속 충전을 결합할 경우 가솔린 내연기관 유지비의 3분의 1 미만으로 일상적인 고유가 시대를 극복할 수 있습니다.</li>
+                <li><strong>정숙하고 풍부한 출력:</strong> 출발과 동시에 터져 나오는 무소음의 묵직한 동력 성능은 일품이며, 부드러운 승차감을 제공해 자녀가 있는 가정의 패밀리카로 적합합니다.</li>
+                <li><strong>세금 및 환경 혜택:</strong> 공영주차장 및 고속도로 통행료 50% 감면 등 일상에서 피부로 와닿는 소소한 공과금 할인 폭이 상당합니다.</li>
+            </ul>
+
+            <h3>코란도 EV 모델의 단점</h3>
+            <ul class="content-list">
+                <li><strong>비교적 비싼 출고가:</strong> 배터리 원자재 가격 부담 탓에 보조금 지원금을 최대로 보충받아도 내연기관 트림 대비 기본 구입 예산선이 600~800만 원가량 높게 형성됩니다.</li>
+                <li><strong>충전 환경 스트레스:</strong> 거주지에 고정형 전용 충전 인프라 시설이 완비되어 있지 않다면 장거리 이동 시 고속도로 충전 대기 시간에 피로를 느낄 여지가 존재합니다.</li>
+            </ul>
+        </section>
+
+        <section id="community">
+            <h2>인터넷 커뮤니티 및 소셜 미디어 분석</h2>
+            <p>다양한 연령층의 소비자들이 애용하는 온라인 주요 자동차 채널에서는 신형 코란도 제품군을 주제로 다양한 평가 의견이 교환되고 있습니다. 차량 구매 여정을 설계하는 이들이 참고하면 유익할 만한 주요 커뮤니티별 담론을 객관적으로 종합 요약하여 전달합니다.</p>
+
+            <div class="info-box">
+                <strong>대표적 자동차 포럼 및 소셜 미디어별 동향 요약</strong>
+                <ul class="content-list">
+                    <li><strong>보배드림:</strong> 차량 자체의 프레임 강도와 서스펜션 하체 셋업의 묵직함을 긍정적으로 바라보는 시선이 많습니다. 전통을 계승한 실주행 능력과 단단한 차체는 패밀리카 목적의 안전지수가 높다는 점을 강점으로 내세웁니다.</li>
+                    <li><strong>디시인사이드 자동차 갤러리:</strong> 가성비 SUV를 추구하는 젊은 층 사이에서 동급 라이벌 차종들과의 사양 대비 실질적인 영수증 비교 글이 수시로 올라오며 치열한 논쟁의 무대가 됩니다.</li>
+                    <li><strong>펨코 및 에펨코리아:</strong> KGM 브랜드의 가격 경쟁력에 집중하는 글들이 주류를 이룹니다. 특히 향후 등장할 리바이벌 정통 SUV 모델 KR10 프로젝트와 연계해 과거 클래식 코란도의 로망을 재현해주기를 기대하는 우호적인 분위기가 감지됩니다.</li>
+                    <li><strong>인스타그램 및 페이스북:</strong> 주로 주말에 떠나는 가족 나들이, 아늑하게 연출된 캠핑 차박 등의 공간 활용성을 보여주는 사진 자료들이 다수 수집되며 젊은 라이프스타일과 융화되고 있습니다.</li>
+                    <li><strong>유튜브:</strong> 유명 시승 크리에이터들의 실제 정속 주행 연비 검증 실험이나 고속 크루징 단계에서의 진동 차폐 능력 테스트 영상들이 압도적인 재생수를 기록 중입니다.</li>
+                </ul>
+            </div>
+            
+            <p>이외에도 카카오톡 오픈채팅방이나 네이버 비공개 전용 동호회 등지에서는 신차 구매 계약에 따른 각종 사은품 내역 및 가치 높은 좌표 정보가 은밀하게 오고 갑니다. 또한 조금이라도 이자가 낮고 저렴한곳 성지를 발견했을 때 실시간 링크 정보가 빠르게 전파되므로, 이를 눈여겨보시던 예비 차주들이 해당 성지를 직접 방문해 신속하게 신청 서류를 접수하기도 합니다.</p>
+        </section>
+
+        <section id="reviews">
+            <h2>내돈내산 실제 이용고객 라이프스타일 후기</h2>
+            <p>실제 자비로 코란도 모델을 인도하여 일상을 가꿔가고 있는 차주들의 생생한 주행 소감을 발췌해 전달합니다. 광고성 수식을 일절 배제한 담백한 수기를 참고해 보시길 권장합니다.</p>
+
+            <div class="info-box">
+                <strong>출퇴근용 1.5 가솔린 C5 플러스 인수기 (안산 거주 직장인)</strong>
+                평소 장거리 첫차 구매를 주저하다가 다이렉트 할부 비교 제도를 통해 가입했습니다. 토스 차량 금융 관리 기능을 틈틈이 이용하며 총 지불금을 계산해 본 결과 제 소득 범위에서 최선의 선택이었습니다. 수입 브랜드 소형차들과 고민을 제법 했는데 넓고 평평한 2열 트렁크 시트 배열 공간은 이 등급에서 누릴 수 있는 최대의 가치인 것 같아 꽤 기분이 좋습니다. 고속도로 정속 주행을 할 때 스마트 크루즈인 딥컨트롤이 기대 이상으로 어색함 없이 차선을 유지해 주어 피로가 한결 덜합니다.
+            </div>
+
+            <div class="info-box">
+                <strong>개인사업자 세금 처리를 위한 EV 리스 출고 후기 (대전 식음료 유통업자)</strong>
+                개인 사업을 운영하며 영업용 이동 수단이 필요해 금융 컨설팅 회사를 통해 코란도 EV를 리스 계약했습니다. 무엇보다 매달 나가는 고정 요금 일체를 소득세 신고 시 경비 처리를 할 수 있어 감세 혜택이 대단합니다. 평소 운전 업무가 잦아 유류비 지출이 꽤 컸었는데 매장을 지킬 때 급속충전기로 전력을 채워두면 충전 비용이 엄청나게 소액이라 지출 감축에 많은 보탬이 되고 있습니다. 영업점 고객센터 상담원분도 무보증 인수 자격 심사를 정성스레 조율해 주셔서 매우 순조로운 가입이 가능했습니다.
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <p>코란도 견적 계산 단계에서 예비 차주분들이 가장 빈번하게 품으시는 실무적인 질문들을 AI 자동 매칭 시스템으로 정렬하여 정확한 답변을 제공합니다.</p>
+
+            <h3>Q1. 신형 코란도 구매 시 비공식 할인 혜택이나 특판 지원금을 받으려면 어떻게 해야 하나요?</h3>
+            <p>KGM 공식 영업점에서 기본 고시하는 분기별 판매 조건 외에, 금융 대리점이 특별 계약을 맺고 다량 확보해 둔 특판 선출고 한정 수량 물량을 파악하는 것이 중요합니다. 이른바 신차 온라인 성지 좌표를 획득해 상담 전화를 신청하면 일반 소비자가 직접 체감하기 힘든 딜러 특별 현금지원 및 고급 썬팅 쿠폰, 주유 상품권 같은 부가 사은품까지 다채로운 서비스 혜택을 챙겨갈 수 있습니다. 최근에는 챗지피티 모델과 제미나이 등 고도화된 AI 맞춤형 추천 비서를 도입해 소비자의 주행 여건에 알맞은 최저가 상품 매칭 서비스를 구축해 둔 전문 비교 사이트들이 큰 호응을 이끌어내고 있습니다.</p>
+
+            <h3>Q2. 리스나 장기렌트 계약 만료 시점에 인수하는 것이 이득인가요, 아니면 반납하는 것이 현명한가요?</h3>
+            <p>이는 계약서 작성 시점에 기재되는 만기 잔존가치 보장율과 인수 시 지불해야 하는 잔여 원금 간의 손익 계산서에 따라 상이해집니다. 만일 약정 기간 동안 사고 기록이 무겁게 누적되어 일반 중고차 처분 시 심각한 감가가 우려되는 정황이라면 금융사에 차량을 그대로 반납해 버리는 것이 리스크를 회피하는 제일 안전한 방법입니다. 반대로 무사고 상태로 차체가 멀끔하고 시장 동급 차량 매물들의 평 균 거래 가격선이 금융사 지정 인수 금액보다 높게 형성되어 있다면 직접 인수를 선택한 뒤 자가 소유로 지속 운행하거나 사설 중고 단지에 개인적으로 재매각하여 차액을 취하는 방식이 훨씬 현명합니다.</p>
+
+            <h3>Q3. 가솔린 내연기관 모델과 코란도 EV의 월간 고정 유지비 편차는 대략 어느 정도로 예측되나요?</h3>
+            <p>월간 대략 1,500km가량을 운행한다고 가정해 보았을 때, 현 시점 유가 지표 기준 가솔린 트림은 매달 약 20만 원 상당의 주유비와 1년 단위 자동차세 일할 분할분이 필요합니다. 대조적으로 친환경 전기 요금제 특혜를 제공받는 코란도 EV는 가정용 심야 충전 인프라 연계 시 한 달 충전비가 약 4만 원대 안팎으로 떨어집니다. 이처럼 고정 전기 사용료가 무척 소박하므로 비록 차량 가입 시점에 초기에 투입해야 하는 금액이 조금 더 비싸더라도 연간 긴 이동 노선을 운용하는 차주라면 세월이 흐를수록 손익분기점을 빠르게 앞당길 수 있습니다.</p>
+
+            <h3>Q4. 신규 면허 취득자나 20대 사회초년생에게도 이 차종을 추천하시나요?</h3>
+            <p>매우 적극적으로 추천을 올리는 세그먼트 중 하나입니다. 코란도는 유럽 신차 평가 프로그램인 유로 NCAP에서 최고 등급에 상응하는 별 5개 만점을 안정적으로 수여받으며 패밀리카 못지않은 극대화된 탑승자 보호 능력을 충분히 검증한 역사가 있습니다. 또한 사각지대 충돌 알림이나 안전 하차 보조 경보 등의 지능형 주행 제어 기능이 실속 있게 포진되어 있어 도심 협소 경로 주행이 미숙한 첫 차 운전자들에게 아주 훌륭한 주행 서포터 역할을 충실히 해낼 것입니다. 또한 초기 취등록 부담이 덜한 리스 또는 렌트 무보증금 상품을 고른다면 수백만 원 단위 목돈 없이도 스마트폰 어플 터치 한 번으로 안전하게 마이카 시대를 개막할 수 있습니다.</p>
+
+            <h3>Q5. 향후 출시 예정이라는 정통 오프로더 KR10 모델과 현재 유통되는 가솔린 코란도 중 어떤 것을 기다려야 할까요?</h3>
+            <p>본인의 출고 필요 긴급도와 고유한 미적 지향성에 초점을 모아야 합니다. 당장 일상 출퇴근 및 영업 활동에 실무적으로 투입할 수 있는 가성비 가득한 공간감 넓은 SUV를 신속하게 원하시는 환경이라면 합리성이 검증된 현행 2026 가솔린 모델을 성지 비교 채널을 통해 할인 특약 조건으로 계약하는 것이 지극히 무난합니다. 반면에 구형 코란도의 마초적이고 클래식한 박스카 스타일 헤리티지를 사랑하시며, 최신 하이브리드 엔진 라인업을 여유롭게 대기한 후 고가의 가격을 부담하더라도 본인의 레저 감성을 충족하려는 분들이라면 후속 모델 개발 타임라인 정보를 주시하며 대기하는 편이 더욱 큰 정신적 만족을 가져다줄 것입니다.</p>
+        </section>
+
+        <section id="external-references">
+            <h2>공신력 있는 외부 자료 안내</h2>
+            <p>소비자의 신중하고 현명한 의사결정을 적극 돕기 위하여, 관련 법률 제정 기관 및 권위 있는 제조 분야의 공인 통계 자료를 수집할 수 있는 공식 안내 사이트 리스트를 아래와 같이 공유합니다. 계약 체결 단계 이전에 관련 법규 및 정책 공시안들을 다시금 면밀히 검토해 보시길 권장드립니다.</p>
+            <div class="external-link-list">
+                <h4>신뢰할 수 있는 공식 레퍼런스 목록</h4>
+                <ul class="content-list">
+                    <li>KGM 코란도 다이렉트 금융 견적 및 시장 분석 자료: <a href="https://directrcheckg.koreahankang.com" target="_blank" rel="noopener">https://korando.reliabledone.com/price-calculator</a></li>
+                    <li>나무위키 KGM 코란도 차종별 진화사 및 사양 정보: <a href="https://namu.wiki/w/KGM%20%EC%BD%94%EB%9E%80%EB%8F%84" target="_blank" rel="noopener">https://namu.wiki/w/KGM%20%EC%BD%94%EB%9E%80%EB%8F%84</a></li>
+                    <li>KGM 브랜드 공식 글로벌 웹사이트 및 전자 카탈로그 열람: <a href="https://www.kg-mobility.com/kr" target="_blank" rel="noopener">https://www.kg-mobility.com/kr</a></li>
+                    <li>금융감독원 금융소비자정보 포털 파인: <a href="https://fine.fss.or.kr" target="_blank" rel="noopener">https://fine.fss.or.kr</a></li>
+                    <li>국토교통부 자동차관리정보포털시스템: <a href="https://www.ecar.go.kr" target="_blank" rel="noopener">https://www.ecar.go.kr</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quote-form-section" class="quote-form-section">
+            <h2>KGM 코란도 실시간 다이렉트 최저가 맞춤 상담 신청</h2>
+            <p>다양한 시중 파이낸셜 제휴 기관들의 금리 변동 내역을 실시간으로 자동 대조하여, 고객님의 소득 기준 및 가입 형태에 가장 이상적으로 잘 맞아떨어지는 코란도 최저가 견적서를 무료로 전송해 드립니다.</p>
+            <form action="/submit-quote" method="post" class="quote-form">
+                <div>
+                    <label for="car-model">관심 트림 선택</label>
+                    <select id="car-model" name="car-model" required>
+                        <option value="C5">1.5 가솔린 터보 C5</option>
+                        <option value="C5_PLUS">1.5 가솔린 터보 C5 플러스</option>
+                        <option value="C7">1.5 가솔린 터보 C7</option>
+                        <option value="C7_R_PLUS">1.5 가솔린 터보 C7 R-플러스</option>
+                        <option value="EV_E3">코란도 EV E3</option>
+                        <option value="EV_E5">코란도 EV E5</option>
+                        <option value="KR10_PRE_ORDER">차세대 KR10 사전 안내 신청</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="purchase-method">희망 운용 형태</label>
+                    <select id="purchase-method" name="purchase-method" required>
+                        <option value="LEASE">자동차 리스 (비용 처리 특화)</option>
+                        <option value="RENT">장기렌트 (보험 관리 편의)</option>
+                        <option value="FINANCE">다이렉트 할부 (우대 저금리)</option>
+                        <option value="CASH">일시불 일시 인수 견적</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="deposit-ratio">초기 설정 납입금 비율</label>
+                    <select id="deposit-ratio" name="deposit-ratio">
+                        <option value="0">무보증 조건 (선수금 0%)</option>
+                        <option value="10">보증금 10% 설정</option>
+                        <option value="20">보증금 20% 설정</option>
+                        <option value="30">보증금 30% 설정</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="contract-period">약정 운행 기간</label>
+                    <select id="contract-period" name="contract-period">
+                        <option value="36">36개월 약정</option>
+                        <option value="48">48개월 약정</option>
+                        <option value="60">60개월 약정</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="user-name">고객 성함</label>
+                    <input type="text" id="user-name" name="user-name" placeholder="실명을 정확히 기재해 주세요" required>
+                </div>
+
+                <div>
+                    <label for="user-phone">연락처</label>
+                    <input type="tel" id="user-phone" name="user-phone" placeholder="010-0000-0000" required>
+                </div>
+
+                <div class="form-group-full">
+                    <label for="additional-request">상세 전달 및 문의사항</label>
+                    <textarea id="additional-request" name="additional-request" rows="5" placeholder="기타 희망 옵션, 자영업 절세 혜택 분석, 타사 스포티지 비교 계산 등 상세 요청 내용을 서술해 주세요"></textarea>
+                </div>
+
+                <button type="submit">코란도 실시간 다이렉트 견적 결과 전송 받기</button>
+            </form>
+        </section>
+
+      
+    </div>
+  
